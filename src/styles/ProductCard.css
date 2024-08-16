@@ -1,0 +1,228 @@
+/* General Page Layout */
+.product-view-page {
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.shoplane-header .nav-links a {
+  font-weight: bold; /* Make the text bold */
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Default color for links */
+  margin: 0 10px; /* Add some horizontal space between links */
+  transition: color 0.3s; /* Smooth color transition on hover */
+}
+.shoplane-header .nav-links a:hover {
+  color: #00e3c2;
+}
+
+/* Product Grid Layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 10px;
+}
+
+/* Individual Product Card */
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+  width: 100%;
+  max-width: 220px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to the card */
+  margin-bottom: 20px; /* Reduce the gap between the product cards */
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Product Image */
+.product-image {
+  height: 180px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* Product Title */
+.product-title {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Product Price */
+.product-price {
+  font-size: 20px;
+  color: #188982;
+  margin-bottom: 15px;
+}
+
+/* Add to Cart Button */
+.add-to-cart-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #0056b3;
+}
+
+/* Quantity Controls */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-controls button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.quantity-controls button:hover {
+  background-color: #0056b3;
+}
+
+.quantity-controls span {
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.shoplane-header {
+  background-color: white;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #5f5b5b;
+}
+
+
+.shoplane-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+
+
+.shoplane-header #logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.shoplane-header #logo .shop{
+  color: #00e3c2;
+}
+
+.shoplane-header #logo .lane{
+  color: black;
+}
+
+.shoplane-header .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.shoplane-header .nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.shoplane-header .header-icons {
+  display: flex;
+  gap: 30px;
+}
+
+.shoplane-header .header-icons a {
+  color: black;
+  position: relative;
+}
+
+.shoplane-header .cart-icon .cart-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: teal;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.shoplane-header .header-icons .fas {
+  font-size: 18px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .product-view-page {
+    padding: 10px;
+  }
+
+  .shoplane-header .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .shoplane-header .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .shoplane-header .header-icons {
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  .product-title {
+    font-size: 14px;
+  }
+
+  .product-price {
+    font-size: 18px;
+  }
+
+  .add-to-cart-button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .quantity-controls button {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}

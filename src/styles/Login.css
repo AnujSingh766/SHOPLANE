@@ -1,0 +1,117 @@
+/* Container for the whole page */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff;
+}
+
+/* Card for login form */
+.login-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Tab Buttons for Login and Signup */
+.tab-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tab {
+  width: 50%;
+  padding: 10px 0;
+  text-align: center;
+  border: none;
+  border-radius: 25px;
+  background-color: white;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+.tab:hover{
+  background-color: #00e3c2;
+}
+
+.tab.active {
+  background-color: #00e3c2; /* Light green */
+  color: white;
+}
+
+/* Form Styling */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+.login-form .form-group input {
+  border-radius: 25px; /* Adjust the radius as needed */
+  padding: 10px; /* Optional: adjust padding to fit your design */
+  border: 1px solid #ccc; /* Optional: add a border color */
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Optional: add a subtle shadow */
+}
+
+input:focus {
+  outline: none;
+  border-color: #00e3c2;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+  color: #0080ff;
+  font-size: 15px;
+  text-align: right;
+  margin-left: 50%;
+  margin-top: 10px;
+}
+
+/* Login Button */
+.login-button {
+  background-color: #00e3c2; /* Light green */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #00c6a6;
+}
+
+/* Responsive for mobile screens */
+@media (max-width: 500px) {
+  .login-card {
+    width: 100%;
+    padding: 20px;
+  }
+}
