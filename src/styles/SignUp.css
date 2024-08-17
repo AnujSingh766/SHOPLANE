@@ -14,6 +14,7 @@
   background-color: #007bff;
   width: 100%;
   padding: 30px;
+  box-sizing: border-box; /* Ensures padding is included in width */
 }
 
 .header-buttons {
@@ -25,13 +26,14 @@
 .header-buttons .login-btn,
 .header-buttons .signup-btn {
   border: none;
-  font-size: 18px;
+  font-size: 25px;
   color: white;
   background-color: transparent;
   width: 200px;
   padding: 15px;
   cursor: pointer;
   border-radius: 25px;
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
 }
 
 .header-buttons .login-btn {
@@ -39,12 +41,16 @@
   box-shadow: 0 0 20px rgba(58, 5, 5, 0.1);
 }
 
+.login-btn:hover {
+  background-color: #00e3c2;
+}
+
 .header-buttons .signup-btn {
   background-color: #00e3c2;
   color: white;
 }
 
-.header-buttons .signup-btn:hover {
+.signup-btn:hover {
   background-color: #00c6a6;
 }
 
@@ -60,10 +66,10 @@
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Ensures padding is included in width */
 }
 
 /* Example styles for ISD code and mobile number */
-/* Example CSS adjustments for ISD code and mobile number */
 .phone-group {
   display: flex;
   flex-direction: column;
@@ -73,17 +79,13 @@
   display: flex;
   align-items: center;
 }
-.isd-code {
- width: 70px;
- 
-}
-.mobile_no{
-  width: 70px;
 
+.mobile_no {
+  width: 70px;
 }
 
 input {
-  width: 100%; /* Makes input field take up full width of its container */
+  width: 100%;
 }
 
 .error {
@@ -94,8 +96,6 @@ input {
   border-color: red;
 }
 
-
-
 .form-group {
   margin-bottom: 15px;
 }
@@ -104,12 +104,10 @@ input {
   width: 100%;
 }
 
-/* Adjust input fields for grid layout */
 .full-width {
   grid-column: span 2; /* Span across both columns */
 }
 
- 
 .form-group {
   display: flex;
   flex-direction: column;
@@ -177,7 +175,7 @@ input {
 
 .signup-form .form-group .error {
   color: red;
-  font-size: 14px;
+  font-size: 18px;
   margin-top: 0;
 }
 
@@ -200,6 +198,7 @@ input {
   margin-top: 20px;
   text-align: center;
   grid-column: span 2; /* Span across both columns */
+  transition: background-color 0.3s; /* Smooth transitions */
 } 
 
 .submit-btn:hover {
@@ -210,16 +209,13 @@ input {
 @media (max-width: 768px) {
   .signup-form {
     grid-template-columns: 1fr;
+    padding: 20px;
   }
 
   .header-buttons .login-btn,
   .header-buttons .signup-btn {
     width: 150px;
     font-size: 16px;
-  }
-
-  .signup-form {
-    padding: 20px;
   }
 
   .form-group > * {

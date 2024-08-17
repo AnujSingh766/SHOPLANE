@@ -2,12 +2,15 @@
 .product-view-page {
   padding: 20px;
   margin-bottom: 50px;
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
+/* Heading */
 h2 {
   font-size: 24px;
   text-align: left;
   margin-bottom: 20px;
+  font-weight: bold; /* Ensures heading stands out */
 }
 
 /* Product Grid Layout */
@@ -30,7 +33,7 @@ h2 {
   max-width: 220px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
@@ -52,6 +55,7 @@ h2 {
   font-size: 16px;
   color: #333;
   margin-bottom: 10px;
+  font-weight: bold; /* Ensures title stands out */
 }
 
 /* Product Price */
@@ -59,6 +63,7 @@ h2 {
   font-size: 20px;
   color: #188982;
   margin-bottom: 15px;
+  font-weight: bold; /* Ensures price stands out */
 }
 
 /* Add to Cart Button */
@@ -92,6 +97,7 @@ h2 {
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
 .quantity-controls button:hover {
@@ -104,6 +110,30 @@ h2 {
 }
 
 /* Responsive Styling for Product Card */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 22px;
+  }
+
+  .product-title {
+    font-size: 15px;
+  }
+
+  .product-price {
+    font-size: 18px;
+  }
+
+  .add-to-cart-button {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+
+  .quantity-controls button {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 480px) {
   h2 {
     font-size: 20px;

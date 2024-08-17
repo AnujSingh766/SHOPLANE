@@ -4,7 +4,8 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #fff;
+  background-color: #f9f9f9; /* Subtle background color for better contrast */
+  padding: 20px; /* Adds padding for smaller screens */
 }
 
 /* Card for login form */
@@ -12,8 +13,10 @@
   background-color: #fff;
   border-radius: 10px;
   padding: 30px;
-  width: 400px;
+  width: 100%;
+  max-width: 400px; /* Ensures the card doesn't exceed 400px width */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
 /* Tab Buttons for Login and Signup */
@@ -24,7 +27,7 @@
 }
 
 .tab {
-  width: 50%;
+  flex: 1; /* Ensures both tabs take up equal space */
   padding: 10px 0;
   text-align: center;
   border: none;
@@ -35,8 +38,10 @@
   font-weight: bold;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  box-shadow: 0 0 20px rgba(58, 5, 5, 0.1);
 }
-.tab:hover{
+
+.tab:hover {
   background-color: #00e3c2;
 }
 
@@ -69,13 +74,14 @@ input {
   border: 1px solid #ccc;
   border-radius: 25px;
   font-size: 14px;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
 .login-form .form-group input {
   border-radius: 25px; /* Adjust the radius as needed */
-  padding: 10px; /* Optional: adjust padding to fit your design */
-  border: 1px solid #ccc; /* Optional: add a border color */
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Optional: add a subtle shadow */
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
 input:focus {
@@ -88,13 +94,12 @@ input:focus {
   color: #0080ff;
   font-size: 15px;
   text-align: right;
-  margin-left: 50%;
   margin-top: 10px;
 }
 
 /* Login Button */
 .login-button {
-  background-color: #00e3c2; /* Light green */
+  background-color: #00e3c2;
   color: white;
   padding: 10px;
   border: none;
@@ -108,10 +113,26 @@ input:focus {
   background-color: #00c6a6;
 }
 
+/* Responsive for tablets */
+@media (max-width: 768px) {
+  .login-card {
+    width: 90%; /* Adjusts card size for tablet screens */
+    padding: 20px;
+  }
+}
+
 /* Responsive for mobile screens */
 @media (max-width: 500px) {
   .login-card {
     width: 100%;
     padding: 20px;
+  }
+
+  .forgot-password {
+    font-size: 14px;
+  }
+
+  .tab {
+    font-size: 14px;
   }
 }

@@ -303,32 +303,19 @@ const Signup = () => {
         </div>
 
         {/* ISD Code and Mobile Number */}
-        <div className="form-group">
+        <div className="form-group isd code">
           <label>ISD Code <span className="required">*</span></label>
           <input
             type="text"
             name="isdCode"
             value={formData.isdCode}
-            onChange={handleChange}
-            className={errors.mobileNumber ? "error-input" : ""}
+            readOnly
+            className={errors.isdCode ? "error-input" : ""}
           />
           {errors.isdCode && <p className="error">{errors.isdCode}</p>}
-          {/* <div className="form-group mobile_no"> */}
-          <label>Mobile Number <span className="required">*</span></label>
-          <input
-            type="text"
-            name="mobileNumber"
-            placeholder="Enter your mobile number"
-            value={formData.mobileNumber}
-            onChange={handleChange}
-            className={errors.mobileNumber ? "error-input" : ""}
-          />
-          {errors.mobileNumber && <p className="error">{errors.mobileNumber}</p>}
-        {/* </div> */}
-
         </div>
 
-        <div className="form-group">
+        <div className="form-group mobile-number">
           <label>Mobile Number <span className="required">*</span></label>
           <input
             type="text"
@@ -342,7 +329,6 @@ const Signup = () => {
         </div>
 
         {/* Fax */}
-        {/* <br/> */}
         <div className="form-group">
           <label>Fax</label>
           <input
