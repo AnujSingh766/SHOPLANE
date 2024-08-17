@@ -1,0 +1,87 @@
+
+.shoplane-header {
+  background-color: white;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #5f5b5b;
+}
+
+.shoplane-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.shoplane-header #logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.shoplane-header #logo .shop {
+  color: #00e3c2;
+}
+
+.shoplane-header #logo .lane {
+  color: black;
+}
+
+.shoplane-header .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.shoplane-header .nav-links a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.shoplane-header .nav-links a:hover {
+  color: #00e3c2;
+}
+
+.shoplane-header .header-icons {
+  display: flex;
+  gap: 30px;
+}
+
+.shoplane-header .header-icons a {
+  color: black;
+  position: relative;
+}
+
+.shoplane-header .cart-icon .cart-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: teal;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.shoplane-header .header-icons .fas {
+  font-size: 18px;
+}
+
+/* Responsive Styling for Header */
+@media (max-width: 768px) {
+  .shoplane-header .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .shoplane-header .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .shoplane-header .header-icons {
+    justify-content: center;
+    gap: 15px;
+  }
+}

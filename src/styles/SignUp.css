@@ -5,91 +5,152 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  background-color: #f4f7f9;
   margin: 0;
   padding: 0;
 }
 
 .signup-header {
-  background-color: #007bff; /* Blue color */
+  background-color: #007bff;
   width: 100%;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  box-sizing: border-box;
-  margin-bottom: 20px;
+  padding: 30px;
 }
 
 .header-buttons {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 20px;
+  justify-content: center;
+  margin: 20px 0;
 }
 
 .header-buttons .login-btn,
 .header-buttons .signup-btn {
-  padding: 15px 30px;
   border: none;
-  color: black;
+  font-size: 18px;
+  color: white;
+  background-color: transparent;
+  width: 200px;
+  padding: 15px;
   cursor: pointer;
-  font-size: 16px;
-  border-radius: 50px;
-  margin: 0 10px;
-  background-color: white;
+  border-radius: 25px;
+}
+
+.header-buttons .login-btn {
+  color: black;
+  box-shadow: 0 0 20px rgba(58, 5, 5, 0.1);
 }
 
 .header-buttons .signup-btn {
-  background-color: #00e3c2; /* Green background for signup button */
+  background-color: #00e3c2;
+  color: white;
 }
 
 .header-buttons .signup-btn:hover {
-  background-color: #00c6a6; /* Darker green on hover */
+  background-color: #00c6a6;
 }
 
+/* Form Container */
 .signup-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 950px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Example styles for ISD code and mobile number */
+/* Example CSS adjustments for ISD code and mobile number */
+.phone-group {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  max-width: 800px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
+.phone-inputs {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  align-items: center;
+}
+.isd-code {
+ width: 70px;
+ 
+}
+.mobile_no{
+  width: 70px;
+
+}
+
+input {
+  width: 100%; /* Makes input field take up full width of its container */
+}
+
+.error {
+  color: red;
+}
+
+.error-input {
+  border-color: red;
+}
+
+
+
+.form-group {
   margin-bottom: 15px;
 }
 
-.form-group > * {
-  width: calc(50% - 10px);
-  margin-bottom: 10px;
+.form-group input {
+  width: 100%;
+}
+
+/* Adjust input fields for grid layout */
+.full-width {
+  grid-column: span 2; /* Span across both columns */
+}
+
+ 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .form-group label {
   font-size: 14px;
   font-weight: bold;
-  color: #333;
-  display: block;
   margin-bottom: 5px;
+  color: #333;
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
-.form-group label .required,
-.signup-form .required {
-  color: red;
-  font-size: 14px;
-  margin-left: 5px;
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #00e3c2;
+  outline: none;
+}
+
+/* Grid specific layout */
+.form-group.half-width {
+  grid-column: span 1;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+/* Full-width form groups for radio buttons and long input fields */
+.radio-group,
+.password-group {
+  grid-column: span 2;
 }
 
 .radio-group {
@@ -105,25 +166,10 @@
 }
 
 .radio-group input {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
-input,
-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  font-size: 14px;
-}
-
-input:focus,
-select:focus {
-  outline: none;
-  border-color: #00e3c2;
-}
-
-/* Error Styles */
+/* Error Styling */
 .signup-form .form-group input.error-input,
 .signup-form .form-group select.error-input {
   border: 2px solid red;
@@ -131,85 +177,70 @@ select:focus {
 
 .signup-form .form-group .error {
   color: red;
-  font-size: 12px;
-  margin-top: 5px;
+  font-size: 14px;
+  margin-top: 0;
 }
 
-/* Submit Button */
+.form-group label .required,
+.signup-form .required {
+  color: red;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
 .submit-btn {
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   border: none;
-  color: black;
+  color: white;
   cursor: pointer;
-  border-radius: 50px;
-  background-color: #00e3c2; /* Green background */
+  border-radius: 25px;
+  background-color: #00e3c2;
+  font-size: 18px;
   margin-top: 20px;
-}
+  text-align: center;
+  grid-column: span 2; /* Span across both columns */
+} 
 
 .submit-btn:hover {
-  background-color: #00c6a6; /* Darker green on hover */
+  background-color: #00c6a6;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .header-buttons {
-    justify-content: center;
-    margin-bottom: 15px;
+  .signup-form {
+    grid-template-columns: 1fr;
   }
 
   .header-buttons .login-btn,
   .header-buttons .signup-btn {
-    padding: 10px 20px;
-    font-size: 14px;
+    width: 150px;
+    font-size: 16px;
   }
 
   .signup-form {
-    width: 95%;
-    padding: 15px;
+    padding: 20px;
   }
 
   .form-group > * {
-    width: 100%;
-    margin-bottom: 15px;
+    width: 100%; /* Make inputs full-width on smaller screens */
   }
 }
 
 @media (max-width: 480px) {
-  .signup-header {
-    padding: 15px;
-    font-size: 16px;
-  }
-
   .header-buttons .login-btn,
   .header-buttons .signup-btn {
-    padding: 10px 15px;
-    font-size: 12px;
+    width: 100px;
+    padding: 10px;
+    font-size: 14px;
   }
 
   .signup-form {
     width: 100%;
-    padding: 10px;
-  }
-
-  .form-group {
-    flex-direction: column;
-  }
-
-  .form-group > * {
-    width: 100%;
-  }
-
-  .form-group label {
-    font-size: 12px;
-  }
-
-  .error {
-    font-size: 0.8em;
+    padding: 15px;
   }
 
   .submit-btn {
     padding: 12px;
-    font-size: 14px;
   }
 }

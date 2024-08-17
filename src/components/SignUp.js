@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/SignUp.css";
 
@@ -44,6 +44,15 @@ const Signup = () => {
     Maharashtra: ["Mumbai", "Pune"],
     California: ["Los Angeles", "San Francisco"],
   };
+
+  useEffect(() => {
+    if (formData.country) {
+      setFormData({
+        ...formData,
+        isdCode: isdCodes[formData.country] || "",
+      });
+    }
+  }, [formData.country]);
 
   const handleChange = (e) => {
     setFormData({
@@ -92,6 +101,8 @@ const Signup = () => {
       newErrors.pincode = "Please enter a valid pincode.";
     if (!formData.mobileNumber || formData.mobileNumber.length !== 10)
       newErrors.mobileNumber = "Please enter a valid mobile number.";
+    if (!formData.isdCode || !isdCodes[formData.country])
+      newErrors.isdCode = "Please select a valid ISD code.";
     if (!formData.password || formData.password.length < 8)
       newErrors.password = "Password must be at least 8 characters.";
     if (formData.password !== formData.confirmPassword)
@@ -101,6 +112,7 @@ const Signup = () => {
 
     if (Object.keys(newErrors).length === 0) {
       console.log("Form Submitted", formData);
+      navigate('/Login');
     }
   };
 
@@ -197,7 +209,7 @@ const Signup = () => {
           {errors.lastName && <p className="error">{errors.lastName}</p>}
         </div>
 
-        <div className="form-group">
+        <div className="form-group full-width">
           <label>Email <span className="required">*</span></label>
           <input
             type="email"
@@ -210,7 +222,7 @@ const Signup = () => {
           {errors.email && <p className="error">{errors.email}</p>}
         </div>
 
-        <div className="form-group">
+        <div className="form-group full-width">
           <label>Address <span className="required">*</span></label>
           <input
             type="text"
@@ -239,11 +251,6 @@ const Signup = () => {
             ))}
           </select>
           {errors.country && <p className="error">{errors.country}</p>}
-        </div>
-
-        <div className="form-group">
-          <label>ISD Code</label>
-          <input type="text" name="isdCode" value={formData.isdCode} readOnly />
         </div>
 
         {/* State and City */}
@@ -295,7 +302,32 @@ const Signup = () => {
           {errors.pincode && <p className="error">{errors.pincode}</p>}
         </div>
 
-        {/* Mobile Number */}
+        {/* ISD Code and Mobile Number */}
+        <div className="form-group">
+          <label>ISD Code <span className="required">*</span></label>
+          <input
+            type="text"
+            name="isdCode"
+            value={formData.isdCode}
+            onChange={handleChange}
+            className={errors.mobileNumber ? "error-input" : ""}
+          />
+          {errors.isdCode && <p className="error">{errors.isdCode}</p>}
+          {/* <div className="form-group mobile_no"> */}
+          <label>Mobile Number <span className="required">*</span></label>
+          <input
+            type="text"
+            name="mobileNumber"
+            placeholder="Enter your mobile number"
+            value={formData.mobileNumber}
+            onChange={handleChange}
+            className={errors.mobileNumber ? "error-input" : ""}
+          />
+          {errors.mobileNumber && <p className="error">{errors.mobileNumber}</p>}
+        {/* </div> */}
+
+        </div>
+
         <div className="form-group">
           <label>Mobile Number <span className="required">*</span></label>
           <input
@@ -306,12 +338,11 @@ const Signup = () => {
             onChange={handleChange}
             className={errors.mobileNumber ? "error-input" : ""}
           />
-          {errors.mobileNumber && (
-            <p className="error">{errors.mobileNumber}</p>
-          )}
+          {errors.mobileNumber && <p className="error">{errors.mobileNumber}</p>}
         </div>
 
         {/* Fax */}
+        {/* <br/> */}
         <div className="form-group">
           <label>Fax</label>
           <input
@@ -336,7 +367,7 @@ const Signup = () => {
         </div>
 
         {/* Password */}
-        <div className="form-group">
+        <div className="form-group full-width">
           <label>Password <span className="required">*</span></label>
           <input
             type="password"
@@ -350,7 +381,7 @@ const Signup = () => {
         </div>
 
         {/* Confirm Password */}
-        <div className="form-group">
+        <div className="form-group full-width">
           <label>Confirm Password <span className="required">*</span></label>
           <input
             type="password"
@@ -360,9 +391,7 @@ const Signup = () => {
             onChange={handleChange}
             className={errors.confirmPassword ? "error-input" : ""}
           />
-          {errors.confirmPassword && (
-            <p className="error">{errors.confirmPassword}</p>
-          )}
+          {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
         </div>
 
         <button type="submit" className="submit-btn">Submit</button>

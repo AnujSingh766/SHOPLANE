@@ -3,8 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/ProductCard.css"; 
 import { fetchProducts } from "../utils/api"; 
-
-
+import Header from "./Header"; // Import the Header component
 
 const ProductCard = () => {
   const [products, setProducts] = useState([]);
@@ -12,7 +11,6 @@ const ProductCard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [category, setCategory] = useState("all");
- 
 
   useEffect(() => {
     // Fetch data from the fake store API
@@ -25,7 +23,19 @@ const ProductCard = () => {
       setError("Failed to fetch products.");
       setLoading(false);
     });
-}, []);
+  }, []);
+
+
+  // Filter products based on the selected category
+  
+  const filteredProducts = products.filter((product) => {
+    if (category === "all") return true;
+    if (category === "clothing" && (product.category === "men's clothing" || product.category === "women's clothing")) return true;
+    if (category === "accessories" && (product.category === "jewelery" || product.category.includes("accessories"))) return true;
+    if (category === "electronics" && product.category === "electronics") return true;
+    return false;
+  });
+  
 
   const handleAddToCart = (product) => {
     setCart((prevCart) => {
@@ -66,7 +76,6 @@ const ProductCard = () => {
     (acc, item) => acc + item.quantity,
     0
   );
-  
 
   // Filtering products by category
   const clothingProducts = products.filter(
@@ -86,33 +95,8 @@ const ProductCard = () => {
 
   return (
     <div>
-      <header className="shoplane-header">
-        <div className="container">
-          <span id="logo">
-            <span className="shop">SHOP</span>
-            <span className="lane">LANE</span>
-          </span>
-          <nav className="nav-links">
-            <a href="/" onClick={() => setCategory("all")}>HOME</a>
-            <a href="#" onClick={() => setCategory("clothing")}>CLOTHING</a>
-            <a href="#" onClick={() => setCategory("accessories")}>ACCESSORIES</a>
-            <a href="#" onClick={() => setCategory("electronics")}>ELECTRONICS</a>
-          </nav>
-          <div className="header-icons">
-            <a href="#" className="search-icon">
-              <i className="fas fa-search"></i>
-            </a>
-            <a href="/Cart" className="cart-icon">
-              <i className="fas fa-shopping-cart"></i>
-              <span className="cart-count">{totalCartCount}</span>
-            </a>
-            <a href="#" className="user-icon">
-              <i className="fas fa-user"></i>
-            </a>
-          </div>
-        </div>
-      </header>
-
+      <Header totalCartCount={totalCartCount} setCategory={setCategory} /> {/* Render Header with props */}
+      
       {/* Clothing Section */}
       <div className="product-view-page">
         <h2>Clothing for Men and Women</h2>

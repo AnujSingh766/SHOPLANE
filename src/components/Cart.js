@@ -1,8 +1,14 @@
 import React from "react";
-import "../styles/Cart.css"; // Import CSS if needed
+import "../styles/Cart.css";
+import { useCart } from "./CartContext"; // Import the useCart hook
 
-const Cart = ({ cart = {}, handleIncrement, handleDecrement }) => {
-  const totalPrice = Object.values(cart).reduce(
+const Cart = () => {
+  const { cart, incrementQuantity, decrementQuantity } = useCart(); // Access cart context
+
+  // Ensure cart is an object even if not passed or undefined
+  const safeCart = cart || {};
+
+  const totalPrice = Object.values(safeCart).reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
@@ -14,11 +20,11 @@ const Cart = ({ cart = {}, handleIncrement, handleDecrement }) => {
       </header>
 
       <div className="cart-items">
-        {Object.keys(cart).length === 0 ? (
+        {Object.keys(safeCart).length === 0 ? (
           <p>Your cart is empty.</p>
         ) : (
           <div className="cart-grid">
-            {Object.values(cart).map((item) => (
+            {Object.values(safeCart).map((item) => (
               <div className="cart-item" key={item.id}>
                 <img
                   src={item.image}
@@ -29,9 +35,9 @@ const Cart = ({ cart = {}, handleIncrement, handleDecrement }) => {
                   <h3 className="cart-item-title">{item.title}</h3>
                   <p className="cart-item-price">{item.price} $</p>
                   <div className="quantity-controls">
-                    <button onClick={() => handleDecrement(item.id)}>-</button>
+                    <button onClick={() => decrementQuantity(item.id)}>-</button>
                     <span>{item.quantity}</span>
-                    <button onClick={() => handleIncrement(item.id)}>+</button>
+                    <button onClick={() => incrementQuantity(item.id)}>+</button>
                   </div>
                 </div>
               </div>

@@ -10,17 +10,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-.shoplane-header .nav-links a {
-  font-weight: bold; /* Make the text bold */
-  text-decoration: none; /* Remove underline from links */
-  color: #333; /* Default color for links */
-  margin: 0 10px; /* Add some horizontal space between links */
-  transition: color 0.3s; /* Smooth color transition on hover */
-}
-.shoplane-header .nav-links a:hover {
-  color: #00e3c2;
-}
-
 /* Product Grid Layout */
 .product-grid {
   display: grid;
@@ -39,14 +28,14 @@ h2 {
   background-color: #fff;
   width: 100%;
   max-width: 220px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to the card */
-  margin-bottom: 20px; /* Reduce the gap between the product cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
   transition: transform 0.3s ease;
 }
 
 .product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Product Image */
@@ -114,95 +103,7 @@ h2 {
   font-size: 16px;
 }
 
-.shoplane-header {
-  background-color: white;
-  padding: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid #5f5b5b;
-}
-
-
-.shoplane-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
-}
-
-
-
-.shoplane-header #logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.shoplane-header #logo .shop{
-  color: #00e3c2;
-}
-
-.shoplane-header #logo .lane{
-  color: black;
-}
-
-.shoplane-header .nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.shoplane-header .nav-links a {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.shoplane-header .header-icons {
-  display: flex;
-  gap: 30px;
-}
-
-.shoplane-header .header-icons a {
-  color: black;
-  position: relative;
-}
-
-.shoplane-header .cart-icon .cart-count {
-  position: absolute;
-  top: -5px;
-  right: -10px;
-  background-color: teal;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 12px;
-}
-
-.shoplane-header .header-icons .fas {
-  font-size: 18px;
-}
-
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .product-view-page {
-    padding: 10px;
-  }
-
-  .shoplane-header .container {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .shoplane-header .nav-links {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .shoplane-header .header-icons {
-    justify-content: center;
-    gap: 15px;
-  }
-}
-
+/* Responsive Styling for Product Card */
 @media (max-width: 480px) {
   h2 {
     font-size: 20px;
