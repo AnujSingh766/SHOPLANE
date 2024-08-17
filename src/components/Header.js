@@ -28,7 +28,7 @@ const Header = ({ totalCartCount, setCategory }) => {
             <i className="fas fa-shopping-cart"></i>
             <span className="cart-count">{totalCartCount}</span>
           </a>
-          <a href="/login" className="user-icon">
+          <a href="/Login" className="user-icon">
             <i className="fas fa-user"></i>
           </a>
         </div>
